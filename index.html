@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VK Championate</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body class="lending">
+    <header class="header" id="header">
+        <div class="header__logo-container">
+            <a href='#main__describe' class="header__img">
+                <img src="./images/logo.svg" alt="Логотип">
+            </a>
+        </div>
+        <nav class="header__menu">
+            <a href="#main__time" class="header__a">Этапы</a>
+            <a href="#main__directions" class="header__a">Направления</a>
+            <a href="#main__prizes" class="header__a">Призы</a>
+            <a href="#main__auth" class="header__a header__a--btn">Регистрация</a>
+        </nav>  
+    </header>
+
+    <main class="main">
+        <section id="main__describe" class="section-wrapper">
+            <div class="main__block main__block--time">
+                <div class="main__blockElement">
+                    <h1 class="main__h1">ОБРАЗОВАТЕЛЬНЫЙ ЧЕМПИОНАТ ОТ ВКОНТАКТЕ</h1>
+                    <h2 class="main__h2">11/03/2026 — 30/04/2026</h2>
+                    <p class="main__text">Соревнование для студентов колледжей и вузов по направлениям «дизайн» и «разработка».</p>
+                </div>
+                <div class="main__img-wrapper sizer2">
+                    <img src="./images/winner's cup.png" alt="Кубок победителя">                 
+                </div>
+            </div>   
+        </section>
+
+        <section id="main__time" class="section-wrapper">
+            <div class="main__block main__block--time">
+                <div class="main__blockElement">
+                    <h1 class="main__h1">ПРОВЕДЕНИЕ ЧЕМПИОНАТА</h1>
+                    <p class="main__text l-text">
+                        1. Подать заявку на сайте до 10 марта<br>
+                        2. Получить задания отборочного этапа на почту 11 марта<br>
+                        3. Выполнить и отправить работы до 25 марта<br>
+                        4. Финал для прошедших отбор — 22 апреля (очный)<br>
+                         5. Награждение победителей — 30 апреля
+                    </p>
+                </div>
+                <div class="main__img-wrapper sizer2">
+                    <img src="./images/pocket watch.png" alt="Часы">
+                </div>
+            </div>
+        </section>
+
+        <section class="main__directions section-wrapper" id="main__directions">
+            <div class="main__block column-layout">
+                <div class="main__text-block">
+                    <h1 class="main__h1">НАПРАВЛЕНИЯ</h1>
+                    <p class="main__text">Для участия в чемпионате вы можете выбрать одно из двух направлений.</p>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="main__block main__element">
+                        <div class="main__text-block">
+                            <h2 class="main__h1">ДИЗАЙН</h2>
+                            <p class="main__text">Создавайте интерфейсы, визуальные концепции и графику для цифровых продуктов.</p>
+                        </div>
+                        <div class="main__img-wrapper-small">
+                            <img src="./images/design.png" alt="Дизайн">
+                        </div>
+                    </div>
+                    <div class="main__block main__element">
+                        <div class="main__text-block">
+                            <h2 class="main__h1">РАЗРАБОТКА</h2>
+                            <p class="main__text">Пишите код, решайте алгоритмические задачи и создавайте рабочие прототипы.</p>
+                        </div>
+                        <div class="main__img-wrapper-small">
+                            <img src="./images/dev.png" alt="Разработка">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main__prizes section-wrapper" id="main__prizes">
+            <div class="main__block column-layout">
+                <div class="main__text-block">
+                    <h1 class="main__h1">ПРИЗЫ</h1>
+                    <p class="main__text">Всем участникам чемпионата будут выделены призы.</p>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="main__block main__element">
+                        <div class="main__text-block">
+                            <h2 class="main__h1">ПОБЕДИТЕЛЯМ</h2>
+                            <p class="main__text">До 100 000 рублей, стажировка в компании</p>
+                        </div>
+                        <div class="main__img-wrapper-small sizer">
+                            <img src="./images/coins.png" alt="Монеты">
+                        </div>                        
+                    </div>
+                    <div class="main__block main__element">
+                        <div class="main__text-block">
+                            <h2 class="main__h1">ПРИЗЕРАМ</h2>
+                            <p class="main__text">Ценные подарки, сертификаты на курсы</p>
+                        </div>
+                        <div class="main__img-wrapper-small sizer">     
+                            <img src="./images/gift.png" alt="Подарок">
+                        </div>
+                    </div>
+                    <div class="main__block main__element">
+                        <div class="main__text-block">
+                            <h2 class="main__h1">УЧАСТНИКАМ</h2>
+                            <p class="main__text">Сертификаты об участии, доступ к материалам</p>
+                        </div>
+                        <div class="main__img-wrapper-small sizer">
+                            <img src="./images/certificate.png" alt="Сертификат">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main__auth section-wrapper" id="main__auth">
+            <div class="main__block column-layout">
+                <div class="main__text-block">
+                    <h1 class="main__h1">РЕГИСТРАЦИЯ</h1>
+                    <p class="main__text">Для участия в чемпионате необходимо подать заявку.</p>
+                </div>
+                
+                <form class="main__form auth-card">
+                    <div class="box">
+                        <div class="main__form-strings">
+                            <div class="main__form-string">
+                                <label class="main__label">ПОЧТА</label>
+                                <input class="main__input card-input" type="email" placeholder="example@mail.ru" required>                  
+                            </div>
+                            <div class="main__form-string">
+                                <label class="main__label">НАПРАВЛЕНИЕ</label>
+                                <select class="main__select card-input" name="main__category" required>
+                                    <option value="">Выберите направление</option>
+                                    <option value="1">Дизайн</option>
+                                    <option value="2">Разработка</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <label class="main__form-radioblock">
+                        <input type="checkbox" id="agreement"> 
+                        <span class="check"></span> 
+                        <span class="check-label">Соглашение о получении информационной рассылки</span>
+                    </label>
+                    
+                    <button class="main__form-button" type="submit">ОТПРАВИТЬ</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer">
+        <nav class="footer__menu">
+            <a href="mailto:info@example.com" class="footer__menu-a">Связаться с нами</a>
+            <a href="https://vk.com" target="_blank" class="footer__menu-a">Вконтакте</a>
+            <p class="footer__text">© VK 2026. Все права защищены</p>
+        </nav>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+</html>

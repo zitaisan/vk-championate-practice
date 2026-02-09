@@ -1,0 +1,626 @@
+@import "./drukwidecyr-bold.css";
+
+/* --- 1. База и Сброс --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Добавляем отступ для всех секций, к которым ведут ссылки */
+section[id], footer[id] {
+    scroll-margin-top: 120px; /* Высота хедера + запас */
+}
+
+/* Также включим плавную прокрутку, если она еще не добавлена */
+html {
+    scroll-behavior: smooth;
+}
+
+body.lending {
+    background-color: #0077FF;
+    min-height: 100vh;
+    font-family: 'VK Sans Display Regular', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* --- 2. Типографика (Фикс 30px) --- */
+.main__h1 {
+    font-family: 'DrukWideCyr-Bold', sans-serif;
+    font-size: clamp(24px, 5vw, 45px);
+    line-height: 1.1;
+    margin-bottom: 30px; /* Отступ под заголовком секции */
+}
+
+.main__h2 {
+    font-family: 'DrukWideCyr-Bold', sans-serif;
+    font-size: clamp(20px, 4vw, 32px);
+    line-height: 1.2;
+    margin-bottom: 30px; /* Тот самый промежуток 30px между заголовком и текстом */
+}
+
+.main__text {
+    font-family: 'VK Sans Display Regular', sans-serif;
+    font-size: clamp(16px, 2.2vw, 24px);
+    line-height: 1.4;
+}
+
+.main__label {
+    font-family: 'DrukWideCyr-Bold', sans-serif;
+    font-size: clamp(24px, 5vw, 45px);
+    display: block;
+    margin-bottom: 30px; /* Промежуток 30px в форме */
+}
+
+/* --- 3. Основные стеклянные блоки --- */
+.main {
+    padding: 0 clamp(15px, 5vw, 30px) 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.section-wrapper { width: 100%; max-width: 1200px; }
+
+.main__block {
+    width: 100%;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: clamp(30px, 5vw, 60px);
+}
+
+
+/* Устанавливаем отступ между верхним блоком и контейнером карточек */
+.column-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Фиксированный отступ 30px */
+    align-items: stretch;
+}
+
+/* Убираем лишние внешние отступы у вложенного блока, если они есть */
+.main__directions .block {
+    margin-bottom: 0;
+}
+/* --- 4. Карточки (Направления и Призы) --- */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Расстояние между карточками */
+}
+
+.main__element {
+    background-color: rgba(0, 119, 255, 0.3);
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between; /* Текст слева, картинка справа */
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.main__text-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Контейнер для маленьких картинок */
+.main__img-wrapper-small {
+    flex: 0 0 500px; /* Уменьшили базовую ширину со 150px до 100px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease; /* Добавим плавности для интерактива */
+}
+.sizer {
+    flex: 0 0 250px; 
+    margin-right: 80px;
+}
+
+/* Сама картинка внутри карточки */
+.main__element img {
+    width: 100%;     /* Картинка подстраивается под обертку 100px */
+    height: auto;
+    max-height: 500px; /* Дополнительное ограничение по высоте для аккуратности */
+    object-fit: contain;
+    flex: none;      /* Сбрасываем старый flex: 0 0 150px */
+}
+
+/* Интерактив: легкое увеличение при наведении на всю карточку */
+.main__element:hover .main__img-wrapper-small {
+    transform: scale(1.1);
+}
+
+/* Адаптив для мобилок (если нужно еще меньше) */
+@media (max-width: 600px) {
+    .main__img-wrapper-small {
+        flex: 0 0 30px; /* Еще чуть меньше на телефонах */
+    }
+    .sizer2 {
+        flex: 0 0 200px; 
+    }
+}
+/* --- 5. Регистрация --- */
+.auth-card {
+    background-color: rgba(0, 119, 255, 0.3);
+    box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 40px;
+    margin-top: 20px;
+}
+/* Основная форма */
+.main__form {
+    display: flex; /* Переключаем на flex для управления gap */
+    flex-direction: column;
+    gap: 40px; /* Расстояние 40px между .box, .main__form-radioblock и .main__form-button */
+}
+
+/* Контейнер для строк ввода */
+.main__form-strings {
+    display: flex;
+    justify-content: space-between; /* Распределяем пространство */
+    gap: 30px;                     /* Четкий отступ между полями */
+    width: 100%;                   /* Растягиваем на всю ширину карточки */
+}
+
+/* Обертка каждого поля (label + input) */
+.main__form-string {
+    flex: 1;                       /* Каждое поле занимает равную долю (50/50) */
+    display: flex;
+    flex-direction: column;        /* Label над Input */
+    gap: 10px;                     /* Расстояние от Label до Input */
+}
+
+/* Убираем лишние отступы у лейблов, если они есть */
+
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    .main__form-strings {
+        flex-direction: column;    /* На мобилке в колонку */
+        gap: 20px;                 /* Отступ между полями на мобилке */
+    }
+    
+    .main__form-string {
+        width: 100%;               /* На мобилке на всю ширину */
+    }
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    /* Чтобы инпуты вставали друг под другом */
+    .main__form-strings {
+        flex-direction: column;
+        gap: 20px; /* Расстояние между почтой и направлением на мобилке */
+    }
+
+    /* Уменьшаем общие отступы формы на мобилке, чтобы не занимать весь экран */
+    .main__form {
+        gap: 30px; 
+    }
+
+    .auth-card {
+        padding: 25px; /* Чуть меньше паддинги карточки на мобилке */
+    }
+}
+
+/* Фикс для селекта (стрелочка) */
+.main__select {
+    appearance: none;
+    /* Используем твое изображение */
+    background-image: url("./images/arr.svg"); /* Укажи правильный путь к своей стрелке */
+    background-repeat: no-repeat;
+    background-position: right 25px center; /* Отступ справа 25px */
+    background-size: 16px auto; /* Настрой размер под свою иконку */background-repeat: no-repeat;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.16); /* Твой базовый стиль */
+}
+
+/* Стилизация выпадающего списка */
+.main__select option {
+    background-color: #0056b3; /* Насыщенный синий, чтобы текст был читаемым */
+    color: white;
+    font-family: 'VK Sans Display Regular', sans-serif;
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* Убираем серый фон в Firefox и некоторых версиях Chrome */
+.main__select:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline: none;
+}
+
+
+.card-input {
+    width: 100%;
+    padding: 22px 25px;
+    border: 2px solid white;
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 1);
+    color: white;
+    font-family: 'VK Sans Display Regular', sans-serif;
+    font-size: clamp(16px, 2.2vw, 24px);
+    outline: none;
+}/* Контейнер: делаем его кликабельным и выравниваем элементы */
+.main__form-radioblock {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    user-select: none; /* Чтобы текст не выделялся при частом клике */
+}
+
+/* 1. Полностью скрываем стандартный чекбокс, но оставляем его доступным для системы */
+.main__form-radioblock input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* 2. Твоя кнопка-круг */
+.check {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%; /* Делаем круглым */
+    background-color: rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 1); /* Твой оригинальный стиль */
+    display: inline-block;
+    flex-shrink: 0; /* Чтобы круг не сплющило, если текст длинный */
+    transition: all 0.3s ease;
+}
+.check-label {
+    font-size: clamp(16px, 2.2vw, 24px);
+}
+/* 3. Эффект при наведении (необязательно, но красиво) */
+.main__form-radioblock:hover .check {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* 4. СОСТОЯНИЕ: Когда чекбокс отмечен */
+/* Мы говорим: "Найди input, который checked, и измени стиль следующего за ним элемента .check" */
+.main__form-radioblock input[type="checkbox"]:checked + .check {
+    background-color: white;
+    border: 2px solid white;
+}
+
+/* Кнопка как в макете */
+.main__form-button {
+    background-color: transparent;
+    color: white;
+    border: 6px solid white;
+    border-radius: 40px;
+    padding: 20px 0;
+    width: 100%;
+    font-family: 'DrukWideCyr-Bold', sans-serif;
+    font-size: clamp(24px, 5vw, 45px);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main__form-button:hover {
+    background-color: white;
+    color: #0077FF;
+}
+.main__block--time {
+    display: flex;
+    flex-direction: row; /* В ряд на десктопе */
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.main__block--time .main__blockElement {
+    flex: 1; /* Текст забирает всё свободное пространство */
+}
+
+.main__block--time .main__img-wrapper {
+    flex: 0 1 350px; /* Размер картинки на десктопе */
+    min-width: 0;    /* Позволяет картинке сжиматься */
+}
+@media (max-width: 850px) {
+    section[id], footer[id] {
+        scroll-margin-top: 160px; /* Больший отступ для мобильного хедера */
+    }
+}
+
+/* АДАПТИВНОСТЬ ДЛЯ ПЕРВОГО БЛОКА */
+@media (max-width: 900px) {
+    .main__block--time {
+        flex-direction: column;
+        text-align: center; /* Центрируем заголовок и картинку */
+        align-items: center; 
+    }
+
+    .main__blockElement {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрирует внутренние блоки */
+        width: 100%;
+        gap:30px;
+    }
+
+    
+
+    .main__h1 {
+        text-align: center;     /* Заголовок остается строго по центру */
+        margin-bottom: 20px;
+    }
+
+
+    .main__block--time .main__img-wrapper {
+        /* Убираем flex-shrink, чтобы контейнер не сжимал картинку по высоте */
+        flex: 0 0 auto; 
+        width: 100%;
+        max-width: 220px; /* Оптимальный размер для мобильных часов */
+        height: auto;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .main__block--time .main__img-wrapper img {
+        width: 100%;
+        height: auto;      /* Ключевое свойство против сплющивания */
+        display: block;
+        object-fit: contain; /* Сохраняет пропорции внутри контейнера */
+    }
+}
+@media (max-width: 768px) {
+    /* 1. Общий сброс для всех секций-оберток */
+    
+    /* 2. Универсальный отступ внутри ВСЕХ колоночных блоков (заголовок -> текст -> контент) */
+    .column-layout, 
+    .main__block.column-layout {
+        gap: 10px !important; /* Уменьшаем расстояние между заголовком и карточками */
+    }
+
+    /* 3. Убираем "двойные" отступы у текстовых блоков */
+    .block, .main__text-block {
+        margin-bottom: 0; 
+        display: flex;
+        flex-direction: column;
+        gap: 10px;            /* Расстояние между H1/H2 и P (как на твоем скрине) */
+    }
+    
+
+    /* 4. Принудительно обнуляем дефолтные маржины у заголовков и текстов */
+    .main__h1, .main__h2, .main__text {
+        margin: 0 !important;
+        text-align: center;   /* Центрируем всё для мобилок */
+    }
+
+    /* 5. Если есть контейнеры с карточками (направления, призы) */
+    .cards-container {
+        gap: 15px !important; /* Расстояние между самими карточками */
+        margin-top: 10px;     /* Небольшой зазор после вводного текста */
+    }
+}
+@media (max-width: 768px) {
+    /* Центрируем содержимое самой карточки */
+    .main__element {
+        flex-direction: column-reverse; 
+        text-align: center;
+        align-items: center;    /* Центрирует элементы (текст-блок и картинку) по горизонтали */
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Центрируем тексты внутри текстового блока */
+    .main__text-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    /* Центрирует заголовок и параграф */
+        width: 100%;
+    }
+
+    /* Уменьшаем расстояние от заголовка до текста */
+    .main__h2 {
+        margin-bottom: 8px;     /* Уменьшаем нижний отступ заголовка */
+    }
+
+    .main__text {
+        margin-top: 0;          /* Убираем верхний отступ у параграфа, если он есть */
+    }
+
+    /* Настройка картинки (оставляем твою логику с центрированием) */
+    .main__img-wrapper, 
+    .main__img-wrapper-small {
+        flex: 0 1 auto;
+        width: 60%;
+        max-width: 150px;       /* Немного уменьшил, чтобы было аккуратнее */
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+    .l-text {
+        text-align: left;       /* Текст внутри выровнен по левому краю */
+        display: inline-block;  /* Блок сжимается до ширины текста */
+        width: fit-content;     /* Позволяет блоку не растягиваться на весь экран */
+        max-width: 90%;         /* Чтобы не прилипал к краям экрана */
+        margin: 0 auto;         /* Центрирует сам блок с текстом по горизонтали */
+        line-height: 1.6;       /* Добавим немного воздуха между этапами */
+    }
+}
+
+.header {
+    background: white;
+    margin: 20px clamp(15px, 5vw, 30px);
+    padding: 12px 30px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* ЗАКРЕПЛЯЕМ */
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.header__menu {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.header__a {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Линия подчеркивания */
+.header__a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #0077FF;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+/* КЛАСС АКТИВНОЙ СЕКЦИИ (добавляется через JS) */
+.header__a.active {
+    color: #0077FF;
+}
+.header__a.active::after {
+    width: 100%;
+}
+
+/* ЯРКАЯ КНОПКА РЕГИСТРАЦИИ */
+.header__a--btn {
+    background: #0077FF;
+    color: white !important;
+    padding: 10px 25px !important;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.header__a--btn:hover {
+    background: #0056b3;
+    transform: translateY(-1px);
+}
+.header__a--btn::after { display: none; } /* Убираем линию у кнопки */
+.header__img img{
+    transform: translateY(-5px);
+}
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+@media (max-width: 850px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        border-radius: 25px;
+        top: 10px; /* На мобилках поближе к краю */
+    }
+    .header__menu {
+        width: 100%;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 0 10px 5px;
+        scrollbar-width: none;
+    }
+    .header__menu::-webkit-scrollbar { display: none; }
+}
+
+.footer {
+    padding: 0px 60px 70px;
+    width: 100%;    
+    font-size: clamp(16px, 2.2vw, 24px);;
+}
+
+.footer__menu {
+    display: flex;
+    justify-content: space-between; /* Центрируем всё для чистоты стиля */
+    align-items: center;
+    gap: 40px; /* Просторное расстояние между ссылками */
+    flex-wrap: wrap; /* Чтобы на маленьких экранах элементы мягко переносились */
+}
+
+.footer__menu-a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+}
+
+.footer__menu-a:hover {
+    opacity: 1; /* Подсвечиваем только при наведении */
+}
+
+.footer__text {
+    color: white;
+    opacity: 0.3; /* Копирайт — самый тихий элемент */
+    margin: 0;
+}
+
+/* --- МОБИЛЬНАЯ ВЕРСИЯ --- */
+@media (max-width: 600px) {
+    .footer {
+        margin-top: 10px;
+    }
+
+    .footer__menu {
+        flex-direction: column; /* На мобилках выстраиваем в столбик */
+        gap: 20px;
+    }
+
+    .footer__text {
+        margin-top: 10px;
+    }
+}
+
+.main__text, .main__h1, .main__h2 {
+    text-wrap: pretty; /* Для обычного текста */
+    /* или */
+    text-wrap: balance; /* Идеально для заголовков в 2-3 строки */
+}
+/* Стандартный placeholder */
+.card-input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Белый с небольшой прозрачностью, чтобы выглядело изящно */
+    opacity: 1; /* Важно для Firefox */
+}
+
+/* Для Safari и Chrome */
+.card-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Для Firefox 19+ */
+.card-input::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+}
+
+/* Для IE 10-11 */
+.card-input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Эффект при фокусе: делаем placeholder еще светлее, когда пользователь кликает в поле */
+.card-input:focus::placeholder {
+    color: rgba(255, 255, 255, 1);
+    transition: color 0.3s ease;
+}
